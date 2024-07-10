@@ -18,7 +18,7 @@ export default function Home() {
 
 
   const categories = ['Lower Primary','Upper Primary','High School','Higher Secondary','Junior','Senior','General',]
-  let items: any[] = [];
+  let items = [];
 
   switch (category) {
     case 'Lower Primary':

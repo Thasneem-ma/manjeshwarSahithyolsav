@@ -121,7 +121,7 @@ function Page() {
         onChange={(e)=>setResult({...result, category: e.target.value})}
         className='bg-slate-50 h-full hover:bg-slate-100 p-2 rounded border-2 ' name="" id="">
           <option value="">Select Category</option>
-          {categories.map((category) =><option value={category}>{category}</option>)}
+          {categories.map((category,i) =><option key={i} value={category}>{category}</option>)}
         </select>
       </div>
       </div>

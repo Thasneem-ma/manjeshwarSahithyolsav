@@ -8,16 +8,16 @@ import axios from "axios";
 
 function Result() {
 
-    const [dbResults,setDbResults] = useState([])
+  const [dbResults,setDbResults] = useState([])
   const [displayedResult,setDisplayedResult] = useState([])
-   const [imageLoaded, setImageLoaded] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
   const [notUploaded,setNotUploaded] = useState(false)
   const [category, setCategory] = useState('')
   const [item,setItem]=useState('')
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const imageRef = useRef<HTMLImageElement>(null);
-
-
+  const canvasRef = useRef(null);
+  const [canvas, setCanvas] = useState(null);
+  const [image, setImage] = useState(null);
+  const imageRef = useRef(null);
 
   const categories = ['Lower Primary','Upper Primary','High School','Higher Secondary','Junior','Senior','General',]
   let items = [];
@@ -87,36 +87,27 @@ function Result() {
     }
   }
 
-  useEffect(()=>{
-    // const displayResult = dbResults.findOne(category)
-  },[item])
 
   useEffect(()=>{
     fetchResults();
   },[])
 
-  // useEffect(() => {
-  //   if (typeof window !== 'undefined' && canvasRef.current && imageRef.current) {
-  //     const canvas = canvasRef.current;
-  //     const image = imageRef.current;
-  //     // Your canvas drawing code here
-  //   }
-  // }, []);
 
   useEffect(() => {
-    if (typeof window !== 'undefined' && imageLoaded && displayedResult.length > 0) {
-    const canvas = canvasRef.current;
-    const image = imageRef.current;
+    if (canvasRef.current && imageRef.current) {
+      setCanvas(canvasRef.current);
+      setImage(imageRef.current);
+    }
+  }, [imageLoaded,displayedResult]);
 
-    if (dbResults.length > 0 && items.length > 0 && category && canvas && image) {
+  
+  useEffect(() => {
+if (imageLoaded && canvas && image && displayedResult.length > 0) {
       const context = canvas.getContext("2d");
 
       if (context) {
-        // Set canvas dimensions to match the image dimensions
         canvas.width = image.width;
         canvas.height = image.height;
-
-        // Draw the image on the canvas
         context.drawImage(image, 0, 0, canvas.width, canvas.height);
 
         // Function to draw text with wrapping
@@ -187,7 +178,7 @@ function Result() {
           context.fillText(displayedResult[0].thirdUnit, 210, 680);
       }
     }
-}}, []);
+}, [displayedResult,items]);
 // dbResults,items,category
 
   useEffect(()=>{
@@ -196,15 +187,11 @@ function Result() {
       const filteredResults = dbResults.filter(result => result.category === category && result.item === item);
       setDisplayedResult(filteredResults);
       // console.log(filteredResults);
-      
       if (filteredResults.length === 0) {
         setNotUploaded(true);
-        
       }      
     }
-    
-    
-  },[item])
+  },[item, category, dbResults]);
 
   const handleDownload = () => {
     if (canvasRef.current) {
@@ -227,6 +214,7 @@ function Result() {
             onChange={(e) => {
               setCategory(e.target.value);
               setItem('');
+              items = [] ;
           }}
             className="bg-black text-white text-lg p-3 font-medium  md:px-8 rounded">
               <option value="">Select Category</option>
@@ -275,7 +263,7 @@ function Result() {
         {/* Hidden image for canvas drawing */}
         <Image 
 
-        objectFit='contain'
+        // objectFit='contain'
         priority
         fill
         quality={100}

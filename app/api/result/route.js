@@ -20,7 +20,7 @@ export async function POST(req){
                 thirdName , 
                 thirdUnit});
                 
-                return NextResponse.json({message: 'Result uploaded successfully', status: 202})
+                return NextResponse.json({message: 'Result uploaded successfully', status: 202});
     } catch (error) {
         console.log("failed to Upload result", error);
         return NextResponse.json({message: "Failed to Upload result", status:210})
@@ -33,6 +33,6 @@ export async function GET (req, res) {
         return NextResponse.json({results});
     } catch (error) {
         console.log("failed to Upload result", error);
-        return NextResponse.json({message: "Failed to fetch result", status:210})
+        return NextResponse.json({message: "Failed to fetch result", status:210});
     }
 }

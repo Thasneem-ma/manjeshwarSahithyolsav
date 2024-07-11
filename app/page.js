@@ -75,7 +75,7 @@ export default function Home() {
     try {
       const res = await axios.get('/api/result/');
       // console.log(fetchedResults);
-      const fetchedResults = res.data.results
+      const fetchedResults = res.data.results;
       setDbResults(fetchedResults);
       
       
@@ -94,6 +94,7 @@ export default function Home() {
   },[])
 
   useEffect(() => {
+    if (typeof window !== 'undefined' && imageLoaded && displayedResult.length > 0) {
     const canvas = canvasRef.current;
     const image = imageRef.current;
 
@@ -176,7 +177,7 @@ export default function Home() {
           context.fillText(displayedResult[0].thirdUnit, 210, 680);
       }
     }
-  }, [dbResults,items,category]);
+}}, [dbResults,items,category]);
 
 
   useEffect(()=>{

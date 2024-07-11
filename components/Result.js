@@ -206,7 +206,7 @@ if (imageLoaded && canvas && image && displayedResult.length > 0) {
   return (
     <div className="w-full ">
         <h1 className="font-bold text-4xl px-10 md:p-0 md:px-56">Results</h1>
-        <div className="flex justify-between pt-1 p-10 md:px-56">
+        <div className="flex md:flex-row flex-col md:justify-between space-y-1.5 md:space-y-0 pt-1 p-10 md:px-56">
           <div className="flex flex-col items-start">
             <label htmlFor="" className="text-lg">Category</label>
             <select
@@ -216,7 +216,7 @@ if (imageLoaded && canvas && image && displayedResult.length > 0) {
               setItem('');
               items = [] ;
           }}
-            className="bg-black text-white text-lg p-3 font-medium  md:px-8 rounded">
+            className="bg-black text-white md:text-lg p-2 md:p-3 font-medium  md:px-8 rounded">
               <option value="">Select Category</option>
               {categories.map((category,i)=><option key={i} value={category}>{category}</option>)}
             </select>
@@ -226,7 +226,7 @@ if (imageLoaded && canvas && image && displayedResult.length > 0) {
             <select 
             value={item}
             onChange={(e)=>setItem(e.target.value)}
-            className="bg-black text-white text-lg font-medium p-3 md:px-8 rounded">
+            className="bg-black text-white md:text-lg p-2 md:p-3 font-medium  md:px-8 rounded">
               <option value="">Select Item</option>
               {items.map((item,i) => <option key={i} value={item}>{item}</option>)}
             </select>
@@ -234,7 +234,7 @@ if (imageLoaded && canvas && image && displayedResult.length > 0) {
         </div>
 
 
-        <div className="mt-8 bg-yellow-50 p-10 md:px-56">
+        <div className="mt-0 md:mt-8 bg-yellow-50 p-10 md:px-56">
         {displayedResult.length > 0 && <div className="flex flex-col w-full pt-4">
 
         <div className="flex flex-col md:flex-row p-8 gap-4">

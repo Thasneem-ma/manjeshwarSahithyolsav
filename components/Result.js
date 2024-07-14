@@ -98,7 +98,7 @@ function Result() {
       setCanvas(canvasRef.current);
       setImage(imageRef.current);
     }
-  }, [imageLoaded,displayedResult]);
+  }, [imageLoaded,displayedResult,]);
 
   
   useEffect(() => {
@@ -182,10 +182,12 @@ if (imageLoaded && canvas && image && displayedResult.length > 0) {
 // dbResults,items,category
 
   useEffect(()=>{
-    if (dbResults.length > 1) {
+    // console.log(dbResults.length);
+    if (dbResults.length) {
       setNotUploaded(false);
       const filteredResults = dbResults.filter(result => result.category === category && result.item === item);
       setDisplayedResult(filteredResults);
+      // console.log(dbResults);
       // console.log(filteredResults);
       if (filteredResults.length === 0) {
         setNotUploaded(true);

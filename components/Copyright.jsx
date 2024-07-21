@@ -5,7 +5,7 @@ import { FaRegCopyright } from "react-icons/fa6";
 
 function Copyright() {
   return (
-    <div className='md:px-56 px-10 flex justify-between items-center'>
+    <div className='md:px-56 px-10 flex justify-between pb-6 items-center'>
         <div className='flex gap-1 items-center'>
         <FaRegCopyright size={19}/>
         <h1 className='text-[8pt] leading-3'>Copyright reserved by <br/> SSF Manjeshwar </h1>

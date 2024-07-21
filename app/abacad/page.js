@@ -15,8 +15,8 @@ function Page() {
     thirdUnit: '',
   })
 
-  const units = ['Santhadka','Chigurpade','Battippadav','Miyapadav','Baliyoor','Jisthiya' ,
-    'Badavi Nagar','Berike','Kulabail','Munnippady','Borkala','Thalakala','Bejjangala',]
+  const units = ['Vorkady','Bakrabail','Manjeshwar','Meenja','Kunjathur','Kedumbady' ,
+    'Kadambar','Daigoli',]
 
   const categories = ['Lower Primary','Upper Primary','High School','Higher Secondary','Junior','Senior','General',]
 
@@ -154,13 +154,13 @@ function Page() {
           className='bg-slate-50 hover:bg-slate-100 p-2 rounded border-2 ' type="text" />
           </div>
         <div className='flex flex-col gap-2'>
-        <label htmlFor="result Number" className='text-lg'>Unit</label>
+        <label htmlFor="result Number" className='text-lg'>Sector</label>
         <select 
         required
         value={result.firstUnit}
         onChange={(e)=> setResult({...result, firstUnit: e.target.value})}
         className='bg-slate-50 h-full hover:bg-slate-100 p-2 rounded border-2 ' name="" id="">
-          <option value="">Select Unit</option>
+          <option value="">Select Sector</option>
           {units.map((unit,i) =><option key={i} value={unit}>{unit}</option>)}
         </select>
         </div>
@@ -180,13 +180,13 @@ function Page() {
           className='bg-slate-50 hover:bg-slate-100 p-2 rounded border-2 ' type="text" />
           </div>
         <div className='flex flex-col gap-2'>
-        <label htmlFor="result Number" className='text-lg'>Unit</label>
+        <label htmlFor="result Number" className='text-lg'>Sector</label>
         <select 
         required
         value={result.secondUnit}
         onChange={(e) =>setResult({...result, secondUnit: e.target.value})}
         className='bg-slate-50 h-full hover:bg-slate-100 p-2 rounded border-2 ' name="" id="">
-          <option value="">Select Unit</option>
+          <option value="">Select Sector</option>
           {units.map((unit,i) =><option key={i} value={unit}>{unit}</option>)}
 
         </select>
@@ -207,13 +207,13 @@ function Page() {
           className='bg-slate-50 hover:bg-slate-100 p-2 rounded border-2 ' type="text" />
           </div>
         <div className='flex flex-col gap-2'>
-        <label htmlFor="result Number" className='text-lg'>Unit</label>
+        <label htmlFor="result Number" className='text-lg'>Sector</label>
         <select 
         required
         value={result.thirdUnit}
         onChange={(e)=>setResult({...result, thirdUnit: e.target.value})}
         className='bg-slate-50 h-full hover:bg-slate-100 p-2 rounded border-2 ' name="" id="">
-          <option value="">Select Unit</option>
+          <option value="">Select Sector</option>
           {units.map((unit,i) =><option key={i} value={unit}>{unit}</option>)}
 
         </select>

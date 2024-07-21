@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
-import Image from "next/image";
-import temp from "@/public/assets/temp1.jpg";
+// import Image from "next/image";
+// import temp from "@/public/assets/temp1.jpg";
 import { useRef, useEffect, useState } from "react";
 import axios from "axios";
 
@@ -101,89 +101,89 @@ function Result() {
   }, [imageLoaded,displayedResult,]);
 
   
-  useEffect(() => {
-if (imageLoaded && canvas && image && displayedResult.length > 0) {
-      const context = canvas.getContext("2d");
+//   useEffect(() => {
+// if (imageLoaded && canvas && image && displayedResult.length > 0) {
+//       const context = canvas.getContext("2d");
 
-      if (context) {
-        canvas.width = image.width;
-        canvas.height = image.height;
-        context.drawImage(image, 0, 0, canvas.width, canvas.height);
+//       if (context) {
+//         canvas.width = image.width;
+//         canvas.height = image.height;
+//         context.drawImage(image, 0, 0, canvas.width, canvas.height);
 
-        // Function to draw text with wrapping
-        const drawText = (text, x, y, maxWidth, lineHeight) => {
-          const words = text.split(' ');
-          let line = '';
-          let lineCount = 0;
-          for (let n = 0; n < words.length; n++) {
-            let testLine = line + words[n] + ' ';
-            let metrics = context.measureText(testLine);
-            let testWidth = metrics.width;
-            if (testWidth > maxWidth && n > 0) {
-              context.fillText(line, x, y);
-              line = words[n] + ' ';
-              y += lineHeight;
-              lineCount++;
-            } else {
-              line = testLine;
-            }
-          }
-          context.fillText(line, x, y);
-          lineCount++;
-          return lineCount;
-        };
+//         // Function to draw text with wrapping
+//         const drawText = (text, x, y, maxWidth, lineHeight) => {
+//           const words = text.split(' ');
+//           let line = '';
+//           let lineCount = 0;
+//           for (let n = 0; n < words.length; n++) {
+//             let testLine = line + words[n] + ' ';
+//             let metrics = context.measureText(testLine);
+//             let testWidth = metrics.width;
+//             if (testWidth > maxWidth && n > 0) {
+//               context.fillText(line, x, y);
+//               line = words[n] + ' ';
+//               y += lineHeight;
+//               lineCount++;
+//             } else {
+//               line = testLine;
+//             }
+//           }
+//           context.fillText(line, x, y);
+//           lineCount++;
+//           return lineCount;
+//         };
 
-        context.font = "600 65px Poppins, sans-serif";
-          context.fillStyle = "black";
-          const lines = drawText(displayedResult[0].item, 160, 200, 500, 70);
+//         context.font = "600 65px Poppins, sans-serif";
+//           context.fillStyle = "black";
+//           const lines = drawText(displayedResult[0].item, 160, 200, 500, 70);
 
-          context.font = "400 40px Poppins, sans-serif";
-          context.fillStyle = "black";
-          drawText(displayedResult[0].category, 160, 180 + lines * 70, 500, 45);
+//           context.font = "400 40px Poppins, sans-serif";
+//           context.fillStyle = "black";
+//           drawText(displayedResult[0].category, 160, 180 + lines * 70, 500, 45);
 
-          context.font = "400 45px Poppins, sans-serif";
-          context.fillStyle = "black";
-          context.fillText("1", 160, 450);
+//           context.font = "400 45px Poppins, sans-serif";
+//           context.fillStyle = "black";
+//           context.fillText("1", 160, 450);
 
-          context.font = "600 50px Poppins, sans-serif";
-          context.fillStyle = "black";
-          context.fillText(displayedResult[0].firstName, 210, 450);
+//           context.font = "600 50px Poppins, sans-serif";
+//           context.fillStyle = "black";
+//           context.fillText(displayedResult[0].firstName, 210, 450);
 
-          context.font = "400 25px Poppins, sans-serif";
-          context.fillStyle = "black";
-          context.fillText(displayedResult[0].firstUnit, 210, 480);
+//           context.font = "400 25px Poppins, sans-serif";
+//           context.fillStyle = "black";
+//           context.fillText(displayedResult[0].firstUnit, 210, 480);
 
-          context.font = "400 45px Poppins, sans-serif";
-          context.fillStyle = "black";
-          context.fillText("2", 160, 550);
+//           context.font = "400 45px Poppins, sans-serif";
+//           context.fillStyle = "black";
+//           context.fillText("2", 160, 550);
 
-          context.font = "600 50px Poppins, sans-serif";
-          context.fillStyle = "black";
-          context.fillText(displayedResult[0].secondName, 210, 550);
+//           context.font = "600 50px Poppins, sans-serif";
+//           context.fillStyle = "black";
+//           context.fillText(displayedResult[0].secondName, 210, 550);
 
-          context.font = "400 25px Poppins, sans-serif";
-          context.fillStyle = "black";
-          context.fillText(displayedResult[0].secondUnit, 210, 580);
+//           context.font = "400 25px Poppins, sans-serif";
+//           context.fillStyle = "black";
+//           context.fillText(displayedResult[0].secondUnit, 210, 580);
 
-          context.font = "400 45px Poppins, sans-serif";
-          context.fillStyle = "black";
-          context.fillText("3", 160, 650);
+//           context.font = "400 45px Poppins, sans-serif";
+//           context.fillStyle = "black";
+//           context.fillText("3", 160, 650);
 
-          context.font = "600 50px Poppins, sans-serif";
-          context.fillStyle = "black";
-          context.fillText(displayedResult[0].thirdName, 210, 650);
+//           context.font = "600 50px Poppins, sans-serif";
+//           context.fillStyle = "black";
+//           context.fillText(displayedResult[0].thirdName, 210, 650);
 
-          context.font = "400 25px Poppins, sans-serif";
-          context.fillStyle = "black";
-          context.fillText(displayedResult[0].thirdUnit, 210, 680);
-      }
-    }
-}, [displayedResult,items]);
+//           context.font = "400 25px Poppins, sans-serif";
+//           context.fillStyle = "black";
+//           context.fillText(displayedResult[0].thirdUnit, 210, 680);
+//       }
+//     }
+// }, [displayedResult,items]);
 // dbResults,items,category
 
   useEffect(()=>{
     // console.log(dbResults.length);
-    if (dbResults.length) {
+    if (dbResults.length > 0) {
       setNotUploaded(false);
       const filteredResults = dbResults.filter(result => result.category === category && result.item === item);
       setDisplayedResult(filteredResults);
@@ -195,15 +195,15 @@ if (imageLoaded && canvas && image && displayedResult.length > 0) {
     }
   },[item, category, dbResults]);
 
-  const handleDownload = () => {
-    if (canvasRef.current) {
-      const canvas = canvasRef.current;
-      const link = document.createElement("a");
-      link.href = canvas.toDataURL("image/jpeg");
-      link.download = "filtered_image.jpg";
-      link.click();
-    }
-  };
+  // const handleDownload = () => {
+  //   if (canvasRef.current) {
+  //     const canvas = canvasRef.current;
+  //     const link = document.createElement("a");
+  //     link.href = canvas.toDataURL("image/jpeg");
+  //     link.download = "filtered_image.jpg";
+  //     link.click();
+  //   }
+  // };
 
   return (
     <div className="w-full ">
@@ -237,7 +237,7 @@ if (imageLoaded && canvas && image && displayedResult.length > 0) {
 
 
         <div className="mt-0 md:mt-8 bg-yellow-50 p-10 md:px-56">
-        {displayedResult.length > 0 && <div className="flex flex-col w-full pt-4">
+        {displayedResult.length === 1 && <div className="flex flex-col w-full pt-4">
 
         <div className="flex flex-col md:flex-row p-8 gap-4">
           <div className="flex items-center gap-5">
@@ -262,31 +262,7 @@ if (imageLoaded && canvas && image && displayedResult.length > 0) {
             </div>
           </div>
         </div>
-        {/* Hidden image for canvas drawing */}
-        <Image 
-
-        // objectFit='contain'
-        priority
-        fill
-        quality={100}
-        sizes="100vw"
-        src={temp.src}
-          alt="temp"
-          className='w-full hidden'
-          onLoad={() => setImageLoaded(true)}
-          ref={imageRef}
-        />
-
-        {/* Canvas for rendering and downloading */}
-        <canvas ref={canvasRef} className="shadow-lg"></canvas>
-
-        {/* Download button */}
-        <button
-          className="bg-black text-white w-full p-3 text-xl font-semibold"
-          onClick={handleDownload}
-        >
-          Download
-        </button>
+        
         </div> }
 
         {item === '' && <h1>Please Select Your Item</h1>}

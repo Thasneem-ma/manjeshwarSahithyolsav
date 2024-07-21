@@ -8,7 +8,7 @@ import Copyright from '@/components/Copyright.jsx'
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Meenja Sector Sahithyolsav",
+  title: "Manjeshwar Division Sahithyolsav",
   description: "India's Largest Chain Event",
 };
 

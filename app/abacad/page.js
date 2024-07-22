@@ -66,7 +66,7 @@ function Page() {
           case 'General':
             items = ['Spot Magazine','Daff','Arabana','Group Song A','Group Song B','Moulid','Qaseeda',
               'Viplava Gaanam','Chumarezuth','Malappatt','Risala Quiz','Qawali','Viplava gaana rachana',
-              'Mapilappatt Rachana','Project','Collage','Nasheeda','Sufi Geetham','Family Magazine',];
+              'Mapilappatt Rachana','Project','Collage','Nasheeda','Sufi Geetham',];
             break;
 
     default:

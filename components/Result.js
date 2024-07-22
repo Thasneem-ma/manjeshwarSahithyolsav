@@ -36,7 +36,7 @@ function Result() {
       break;
   
       case 'High School':
-      items = ['Elocution M','Elocution E','Mappilappattu','Madh Ganam','Poem Recitation A','Poem Recitation U',
+      items = ['Elocution M','Elocution E','Mappilappattu','Madh Ganam','Poem Recitation M','Poem Recitation A','Poem Recitation U',
         'Story Writing', 'Quiz','Poem Making','Essay Writing M','News Reading','Pencil Drawing','Water Color',
         'Caption Writing','Language Game E', 'Book Test','Embroidery', 'Pencil Drawing G', 'Water Color G', 
         'Book Test G','Story Writing G','Poem Making G'];
